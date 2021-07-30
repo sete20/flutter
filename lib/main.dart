@@ -5,6 +5,9 @@ import 'package:udemy_flutter/homeScreeP3.dart';
 import 'package:udemy_flutter/LoginScreen.dart';
 import 'package:udemy_flutter/messanger.dart';
 import 'UserScreen.dart';
+import 'CounterScreen.dart';
+import 'bmi/BmiCalculator.dart';
+
 void main() {
   //     لتشغيل الابليكشن يجب اعطاء ويدجت والتي هيا بل تالي myApp class  الذي يورث من statelessWidget abstruct
   // ثم يتم عمل اوفرايد عليه بل متطلبات حسب البولي مورفيزم
@@ -13,15 +16,12 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-  return MaterialApp(
-    debugShowCheckedModeBanner: false ,
-  home: UserScreen(),
-  );
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: BmiCalculator(),
+    );
   }
-
 }
