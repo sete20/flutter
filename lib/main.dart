@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:udemy_flutter/home_screen.dart';
 import 'package:udemy_flutter/HomeScreenP2.dart';
 import 'package:udemy_flutter/homeScreeP3.dart';
-import 'package:udemy_flutter/LoginScreen.dart';
-import 'package:udemy_flutter/messanger.dart';
-import 'UserScreen.dart';
-import 'CounterScreen.dart';
-import 'bmi/BmiCalculator.dart';
+import 'package:udemy_flutter/modules/login/LoginScreen.dart';
+import 'package:udemy_flutter/modules/messanger/messanger.dart';
+import 'modules/user/UserScreen.dart';
+import 'modules/counter/CounterScreen.dart';
+import 'modules/bmi/BmiCalculator.dart';
 
 void main() {
   //     لتشغيل الابليكشن يجب اعطاء ويدجت والتي هيا بل تالي myApp class  الذي يورث من statelessWidget abstruct
