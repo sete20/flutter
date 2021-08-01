@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:udemy_flutter/home_screen.dart';
-import 'package:udemy_flutter/HomeScreenP2.dart';
-import 'package:udemy_flutter/homeScreeP3.dart';
+import 'package:udemy_flutter/modules/home/home_screen.dart';
+import 'package:udemy_flutter/modules/home/HomeScreenP2.dart';
+import 'package:udemy_flutter/modules/home/homeScreenP3.dart';
 import 'package:udemy_flutter/modules/login/LoginScreen.dart';
 import 'package:udemy_flutter/modules/messanger/messanger.dart';
-import 'modules/user/UserScreen.dart';
-import 'modules/counter/CounterScreen.dart';
-import 'modules/bmi/BmiCalculator.dart';
+import 'package:udemy_flutter/modules/user/UserScreen.dart';
+import 'package:udemy_flutter/modules/counter/CounterScreen.dart';
+import 'package:udemy_flutter/modules/counter/CounterScreen.dart';
 
 void main() {
   //     لتشغيل الابليكشن يجب اعطاء ويدجت والتي هيا بل تالي myApp class  الذي يورث من statelessWidget abstruct
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: BmiCalculator(),
+      home: LoginScreen(),
     );
   }
 }
