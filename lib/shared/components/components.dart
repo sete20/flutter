@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 Widget defualButton(
         {
         // it gaving me anynoms function
-        required Function function,
+        Function function,
         double width = double.infinity,
         double raduis = 0.0,
-        required String text,
+        String text,
         Color background = Colors.blue}) =>
     Container(
       decoration: BoxDecoration(
@@ -25,40 +25,42 @@ Widget defualButton(
       ),
     );
 
-Widget defualtInput({
-  required IconData prefixIcon,
-  required controller,
-  bool obSecureText = false,
-  required String hintText,
-  required String labelText,
-  required TextInputType type,
-  required Function validate,
-  IconData? suffixIcon,
+Widget defaultFormField({
+  @required TextEditingController controller,
+  @required TextInputType type,
+  Function onSubmit,
+  Function onChange,
+  Function onTap,
   bool isPassword = false,
+  @required Function validate,
+  @required String label,
+  @required IconData prefix,
+  IconData suffix,
+  Function suffixPressed,
+  bool isClickable = true,
 }) =>
     TextFormField(
       controller: controller,
-      validator: validate(),
       keyboardType: type,
       obscureText: isPassword,
+      enabled: isClickable,
+      onFieldSubmitted: onSubmit,
+      onChanged: onChange,
+      onTap: onTap,
+      validator: validate,
       decoration: InputDecoration(
-          hintText: hintText,
-          labelText: labelText,
-          // اول ايقون
-          prefixIcon: Icon(prefixIcon),
-          // ثاني ايقون
-          suffixIcon: suffixIcon != null
-              ? IconButton(
-                  icon: Icon(
-                    suffixIcon,
-                    color: obSecureText ? Colors.blue : Colors.grey,
-                  ),
-                  onPressed: () {
-                    if (type == TextInputType.visiblePassword) {
-                      obSecureText = !obSecureText;
-                    }
-                  },
-                )
-              : null,
-          border: OutlineInputBorder()),
+        labelText: label,
+        prefixIcon: Icon(
+          prefix,
+        ),
+        suffixIcon: suffix != null
+            ? IconButton(
+                onPressed: suffixPressed,
+                icon: Icon(
+                  suffix,
+                ),
+              )
+            : null,
+        border: OutlineInputBorder(),
+      ),
     );

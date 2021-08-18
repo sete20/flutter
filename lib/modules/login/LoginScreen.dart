@@ -8,7 +8,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  bool _showPassword = false;
+  bool _showPassword = true;
 
   var emailController = TextEditingController();
   var formKey = GlobalKey<FormState>();
@@ -50,40 +50,39 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(
                     height: 20.0,
                   ),
-                  defualtInput(
-                      prefixIcon: Icons.email,
-                      controller: emailController,
-                      hintText: "email@email.com",
-                      labelText: "Email Address",
-                      type: TextInputType.emailAddress,
-                      validate: (String value) {
-                        if (value.isEmpty) {
-                          return "email address couldn't be empty";
-                        }
-                      }),
+                  defaultFormField(
+                    suffix: null,
+                    suffixPressed: () {},
+                    prefix: Icons.email,
+                    controller: emailController,
+                    label: "Email Address",
+                    type: TextInputType.emailAddress,
+                    validate: () {},
+                  ),
                   SizedBox(
                     height: 10,
                   ),
-                  defualtInput(
-                      prefixIcon: Icons.lock,
-                      controller: passwordController,
-                      hintText: "password",
-                      labelText: "password",
-                      type: TextInputType.emailAddress,
-                      suffixIcon: Icons.remove_red_eye,
-                      isPassword: true,
-                      validate: (value) {
-                        if (value.isEmpty) {
-                          return "password couldn't be empty";
-                        }
-                        return null;
-                      }),
+                  defaultFormField(
+                    controller: passwordController,
+                    prefix: Icons.lock,
+                    label: "password",
+                    suffix:
+                        _showPassword ? Icons.visibility : Icons.visibility_off,
+                    isPassword: _showPassword,
+                    validate: () {},
+                    suffixPressed: () {
+                      setState(() {
+                        _showPassword = !_showPassword;
+                      });
+                    },
+                    type: TextInputType.visiblePassword,
+                  ),
                   SizedBox(
                     height: 10,
                   ),
                   defualButton(
                       function: () {
-                        if (formKey.currentState!.validate()) {
+                        if (formKey.currentState.validate()) {
                           print(emailController.text);
                           print(passwordController.text);
                         }

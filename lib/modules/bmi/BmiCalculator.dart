@@ -19,7 +19,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
   double height = 120;
   int wieght = 40;
   @override
-  // ريجب تعريف الكونستراكتور السوب
+  // ريجب تعريف الكونستراكتور السوبر
   void initState() {
     super.initState();
   }
