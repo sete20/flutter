@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:udemy_flutter/modules/home/home_screen.dart';
 import 'package:udemy_flutter/modules/home/HomeScreenP2.dart';
 import 'package:udemy_flutter/modules/home/homeScreenP3.dart';
@@ -7,11 +8,12 @@ import 'package:udemy_flutter/modules/messanger/messanger.dart';
 import 'package:udemy_flutter/modules/counter/CounterScreen.dart';
 import 'package:udemy_flutter/modules/counter/CounterScreen.dart';
 import 'package:udemy_flutter/layoyt/HomeLayout.dart';
+import 'shared/observer/ConterObserver.dart';
 
 void main() {
   //     لتشغيل الابليكشن يجب اعطاء ويدجت والتي هيا بل تالي myApp class  الذي يورث من statelessWidget abstruct
   // ثم يتم عمل اوفرايد عليه بل متطلبات حسب البولي مورفيزم
-
+  Bloc.observer = ConterObserver();
   runApp(MyApp());
 }
 
