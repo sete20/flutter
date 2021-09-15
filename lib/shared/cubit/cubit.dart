@@ -10,20 +10,16 @@ import 'package:udemy_flutter/modules/new_tasks/newTasksScreen.dart';
 import 'package:sqflite/sqflite.dart';
 
 class AppCubit extends Cubit<AppStates> {
-  Database database;
-  List<Map> newTasks = [];
-  List<Map> doneTasks = [];
-  List<Map> archivedTasks = [];
-
   AppCubit() : super(AppInitialState());
+
   static AppCubit get(context) => BlocProvider.of(context);
 
   int currentIndex = 0;
 
   List<Widget> screens = [
-    newTasksScreen(),
-    doneTasksScreen(),
-    archivedTasksScreen(),
+    NewTasksScreen(),
+    DoneTasksScreen(),
+    ArchivedTasksScreen(),
   ];
 
   List<String> titles = [
@@ -31,10 +27,16 @@ class AppCubit extends Cubit<AppStates> {
     'Done Tasks',
     'Archived Tasks',
   ];
-  void changetIndex(int index) {
+
+  void changeIndex(int index) {
     currentIndex = index;
     emit(AppChangeBottomNavBarState());
   }
+
+  Database database;
+  List<Map> newTasks = [];
+  List<Map> doneTasks = [];
+  List<Map> archivedTasks = [];
 
   void createDatabase() {
     openDatabase(

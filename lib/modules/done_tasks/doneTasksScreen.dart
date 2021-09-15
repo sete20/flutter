@@ -6,13 +6,13 @@ import 'package:udemy_flutter/shared/components/constants.dart';
 import 'package:udemy_flutter/shared/cubit/cubit.dart';
 import 'package:udemy_flutter/shared/cubit/states.dart';
 
-class NewTasksScreen extends StatelessWidget {
+class DoneTasksScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AppCubit, AppStates>(
       listener: (context, state) {},
       builder: (context, state) {
-        var tasks = AppCubit.get(context).newTasks;
+        var tasks = AppCubit.get(context).doneTasks;
 
         return tasksBuilder(
           tasks: tasks,
