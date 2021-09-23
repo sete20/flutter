@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sqflite/sqlite_api.dart';
 import 'package:udemy_flutter/shared/cubit/states.dart';
-import 'package:udemy_flutter/modules/archived_tasks/archivedTasksScreen.dart';
-import 'package:udemy_flutter/modules/done_tasks/doneTasksScreen.dart';
-import 'package:udemy_flutter/modules/new_tasks/newTasksScreen.dart';
+import 'package:udemy_flutter/modules/todo/archived_tasks/archivedTasksScreen.dart';
+import 'package:udemy_flutter/modules/todo/done_tasks/doneTasksScreen.dart';
+import 'package:udemy_flutter/modules/todo/new_tasks/newTasksScreen.dart';
 import 'package:sqflite/sqflite.dart';
 
 class AppCubit extends Cubit<AppStates> {

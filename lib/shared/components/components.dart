@@ -182,3 +182,70 @@ Widget tasksBuilder({
         ),
       ),
     );
+
+Widget buildArticaleItem(articale) => Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: Row(
+        children: [
+          Container(
+            width: 120,
+            height: 120,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10.0),
+              image: DecorationImage(
+                  image: NetworkImage('${articale['urlToImage']}'),
+                  fit: BoxFit.cover),
+            ),
+          ),
+          SizedBox(
+            width: 15,
+          ),
+          Expanded(
+            child: Container(
+              height: 120,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: Text(
+                      '${articale['title']}',
+                      style: TextStyle(
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.w600,
+                      ),
+                      maxLines: 3,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                  Expanded(
+                    child: Text(
+                      '${articale['publishedAt']}',
+                      style:
+                          TextStyle(fontSize: 8.0, fontWeight: FontWeight.w600),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+
+Widget MyDivider() => Padding(
+        padding: const EdgeInsetsDirectional.only(
+      start: 20.0,
+    ));
+Widget articaleBuilder(list) => ConditionalBuilder(
+      condition: list.length > 0,
+      builder: (context) => ListView.separated(
+        physics: BouncingScrollPhysics(),
+        itemBuilder: (context, index) => buildArticaleItem(list[index]),
+        separatorBuilder: (context, index) => MyDivider(),
+        itemCount: 10,
+      ),
+      fallback: (context) => Center(
+        child: CircularProgressIndicator(),
+      ),
+    );
