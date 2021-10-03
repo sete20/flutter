@@ -24,3 +24,6 @@ class NewsSciensLoadingState extends NewsStates {}
 class NewsGetSciensSuccess extends NewsStates {}
 
 class NewsGetSciensError extends NewsStates {}
+
+// toggale mode
+class StateToggaleMode extends NewsStates {}

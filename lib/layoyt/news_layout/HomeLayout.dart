@@ -22,7 +22,9 @@ class HomeLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (BuildContext context) => NewsCubit()..getBusnies(),
+      create: (BuildContext context) => NewsCubit()
+        ..getBusnies()
+        ..getScience(),
       child: BlocConsumer<NewsCubit, NewsStates>(
         listener: (context, state) {},
         builder: (context, state) {
@@ -35,12 +37,18 @@ class HomeLayout extends StatelessWidget {
                   onPressed: () {},
                   icon: Icon(Icons.search),
                 ),
+                IconButton(
+                  onPressed: () {
+                    NewsCubit.get(context).toggaleMode();
+                  },
+                  icon: Icon(Icons.brightness_4_outlined),
+                ),
               ],
             ),
-            floatingActionButton: FloatingActionButton(
-              onPressed: () {},
-              child: Icon(Icons.add),
-            ),
+            // floatingActionButton: FloatingActionButton(
+            //   onPressed: () {},
+            //   child: Icon(Icons.add),
+            // ),
             body: cubit.screens[cubit.currentIndex],
             bottomNavigationBar: BottomNavigationBar(
               items: cubit.bottomItems,

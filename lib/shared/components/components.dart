@@ -183,7 +183,7 @@ Widget tasksBuilder({
       ),
     );
 
-Widget buildArticaleItem(articale) => Padding(
+Widget buildArticaleItem(articale, context) => Padding(
       padding: const EdgeInsets.all(20.0),
       child: Row(
         children: [
@@ -210,10 +210,7 @@ Widget buildArticaleItem(articale) => Padding(
                   Expanded(
                     child: Text(
                       '${articale['title']}',
-                      style: TextStyle(
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.w600,
-                      ),
+                      style: Theme.of(context).textTheme.bodyText1,
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -241,7 +238,8 @@ Widget articaleBuilder(list) => ConditionalBuilder(
       condition: list.length > 0,
       builder: (context) => ListView.separated(
         physics: BouncingScrollPhysics(),
-        itemBuilder: (context, index) => buildArticaleItem(list[index]),
+        itemBuilder: (context, index) =>
+            buildArticaleItem(list[index], context),
         separatorBuilder: (context, index) => MyDivider(),
         itemCount: 10,
       ),
